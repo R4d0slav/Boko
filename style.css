@@ -17,12 +17,6 @@ span {
     margin: 0px 0px 10px 0px;
 }
 
-.source {
-    /* display:inline-block; */
-    /* float:left; */
-    /* margin: 0px 20px 0px 0px; */
-}
-
 header {
     grid-area: header;   
     background-color: black;
