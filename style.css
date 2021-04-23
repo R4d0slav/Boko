@@ -7,7 +7,7 @@ span {
     white-space: pre;
 }
 
-.source, .target, #slika, #slika2{
+.source, .target, #slika1, #slika2, #slika3 {
     width: 150px;
     height: 100px;
     background-color: #ccc;
