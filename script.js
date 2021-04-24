@@ -42,12 +42,11 @@ $(document).ready(() => {
 
 
     $(".target").on("mousedown", function(e) {
-        console.log(e.target);
         if (mouseX+e.target.width < canvas.offsetLeft && !started) {
             let newElement = e.target.cloneNode(true, true);
             $(e.target).parents()[0].append(newElement);
-            started = true;
-        }
+        } 
+        started = true;
         move(e.target);
     })
     let dragValue;
@@ -134,10 +133,11 @@ $(document).ready(() => {
             $(dragValue).height(dragValue.height - 5);
         }
 
-        if (e.code == "Backspace" && !started) {
+        if (e.code == "Backspace") {
             $(dragValue).remove();
             dragValue = null;
             moving = false;
+            started = false;
         }
     }
     
