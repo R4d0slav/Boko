@@ -37,16 +37,21 @@ $(document).ready(() => {
 
 
     let mouseX, mouseY;
+    let moving = false;
+    let started = false;
+
+
     $(".target").on("mousedown", function(e) {
-        if (mouseX < canvas.offsetLeft) {
+        console.log(e.target);
+        if (mouseX < canvas.offsetLeft && !started) {
             let newElement = e.target.cloneNode(true, true);
             $(e.target).parents()[0].append(newElement);
+            started = true;
         }
         move(e.target);
     })
     let dragValue;
     let oldX, oldY, x0, y0;
-    let moving = false;
     // move("slika1");
 
     console.log(canvas.offsetLeft, canvas.clientWidth)
@@ -60,6 +65,7 @@ $(document).ready(() => {
             y0 = e.pageY-this.offsetTop;
 
             if (!moving) {
+                // started = true;
                 dragValue = element;
                 let x = e.pageX;
                 let y = e.pageY;
@@ -70,12 +76,15 @@ $(document).ready(() => {
                 dragValue.style.top = y-y0 + "px";
 
             } else {
+                started = false;
                 const newX = parseInt(dragValue.style.left.replace(/\D/g, ""));
                 const newY = parseInt(dragValue.style.top.replace(/\D/g, ""));
                 if (newX<canvas.offsetLeft || newX+dragValue.offsetWidth>canvas.clientWidth+canvas.offsetLeft
                     || newY<canvas.offsetTop || newY+dragValue.offsetHeight>canvas.clientHeight+canvas.offsetTop) {
                     dragValue.style.left = oldX+"px";
                     dragValue.style.top = oldY+"px";
+                    // alert("out");
+                    // $(dragValue).remove();
                 }
                 dragValue = null;
             }
