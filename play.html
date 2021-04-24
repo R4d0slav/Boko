@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Righteous&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            background-color: black;
+            display: grid;
+            grid-template-columns: 20% 60% 20%;
+            grid-row-gap: 10px;
+            /* grid-column-gap: 10px; */
+            grid-template-areas: 
+            "header header header"
+            "left board board"
+            "left-down board board"
+            "footer footer footer"
+            ;
+        }
+</style>
+</head>
+<body>
+    
+    <header>
+        <h1>BARJANSKA CESTA <span> +  +  +</span></h1>
+    </header>   
+
+    <div id="left">
+        <div class="target">
+            <image src="Screen Shot 2021-04-23 at 14.50.17.png" alt="image" id="slika1"></image>
+        </div>
+        <div class="target">
+            <image src="Screen Shot 2021-04-23 at 14.50.52.png" alt="image" id="slika2"></image>
+        </div>
+        <div class="target">
+            <image src="Screen Shot 2021-04-23 at 14.51.42.png" alt="image" id="slika3"></image>
+        </div>
+
+        <div class="target">
+            <image src="Screen Shot 2021-04-24 at 01.30.11.png" alt="image" id="slika4"></image>
+        </div>
+        <div class="target">
+            <image src="Screen Shot 2021-04-24 at 01.30.20.png" alt="image" id="slika5"></image>
+        </div>
+        <div class="target">
+            <image src="Screen Shot 2021-04-24 at 01.30.35.png" alt="image" id="slika6"></image>
+        </div>
+        <div class="target">
+            <image src="Screen Shot 2021-04-25 at 00.50.58.png" alt="image" id="slika6"></image>
+        </div>
+    </div>
+
+    <div id="left-down"> 
+        <a href="index.html">Home</a><br />
+        <a href="instructions.html">Instructions</a>
+    </div>
+
+    <div id="board">
+        <canvas id="canvas"></canvas>
+    </div>
+    
+    <footer>Footer...</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

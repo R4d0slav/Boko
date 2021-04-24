@@ -101,7 +101,6 @@ $(document).ready(() => {
     //     }
     // }
 
-    
     document.onmousemove = function(e) {
         mouseX = e.pageX;
         mouseY = e.pageY;
@@ -138,6 +137,11 @@ $(document).ready(() => {
             dragValue = null;
             moving = false;
             started = false;
+        }
+
+        if (e.code == "Space") {
+            dragValue = null;
+            moving = false;
         }
     }
     

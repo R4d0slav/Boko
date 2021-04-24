@@ -3,6 +3,26 @@ html {
     /* font-family: 'Righteous', cursive; */
 }
 
+#home {
+    background-image: url("viber_image_2021-04-25_00-30-37.jpg");
+    background-repeat: repeat;
+}
+
+#homeTitle {
+    /* grid-area: homeTitle; */
+    /* background-color: red; */
+    width: 500px;
+    /* position: relative; */
+    /* top: 50%; */
+    text-align: center;
+    margin: 100% 0 0 170%;
+}
+
+button {
+    padding: 10px 30px 10px 30px;
+    border-radius: 10px;
+}
+
 p, a {
     font-size: 10px;
 }
@@ -96,8 +116,8 @@ ul > li > ul > li {
 }
 
 .source, .target, #slika1, #slika2, #slika3, #slika4, #slika5, #slika6 {
-    width: 150px;
     height: 100px;
+    width: auto;
     background-color: #ccc;
 }
 
@@ -117,6 +137,7 @@ ul > li > ul > li {
     border-radius: 70px;
     border-style: double;
     border-width: 7px;
+    height: 700px;
     margin: 0px 70px 0px 0px;
 } 
 
@@ -133,10 +154,16 @@ ul > li > ul > li {
 
 #left {
     grid-area: left;
+    position: relative;
+    /* overflow: scroll; */
+    /* height: 70%; */
     background-color: wheat;
     margin: 0px 30px 0px 20px;
     padding: 20px;
     border-radius: 50px;
+    border-style: double;
+    border-width: 5px;
+    border-color: silver;
 }
 
 #left * {
@@ -144,23 +171,31 @@ ul > li > ul > li {
 }
 
 #left-down {
+    /* display: inline-block; */
     grid-area: left-down;
     background-color: white;
     margin: 20px 30px 0px 20px;
     padding: 10px;
     border-radius: 50px;
     text-align: center;
+    border-style: double;
+    border-width: 5px;
 }
 
 footer {
     grid-area: footer;
     background-color: black;
+    text-align: center;
     color: white;
     padding: 20px
 }
 
 canvas {
     /* background-color: lightblue !important; */
+    background-image: url("ceste.png");
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100%;
 }
@@ -170,11 +205,11 @@ body {
     display: grid;
     grid-template-columns: 20% 60% 20%;
     grid-row-gap: 10px;
-    /* grid-column-gap: 10px; */
+    grid-column-gap: 10px;
     grid-template-areas: 
     "header header header"
     "left board board"
     "left-down board board"
     "footer footer footer"
     ;
-}
+} 
