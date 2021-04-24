@@ -65,6 +65,10 @@ article {
     border-radius: 50px;
 }
 
+#left * {
+    background-color: transparent;
+}
+
 #left-down {
     grid-area: left-down;
     background-color: white;
@@ -81,7 +85,7 @@ footer {
 }
 
 canvas {
-    background-color: lightblue !important;
+    /* background-color: lightblue !important; */
     width: 100%;
     height: 100%;
 }
