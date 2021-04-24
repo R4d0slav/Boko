@@ -81,7 +81,7 @@ footer {
 }
 
 canvas {
-    background-color: lightblue !important;
+/*     background-color: lightblue !important; */
     width: 100%;
     height: 100%;
 }
