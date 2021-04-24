@@ -137,7 +137,7 @@ ul > li > ul > li {
     border-radius: 70px;
     border-style: double;
     border-width: 7px;
-    height: 700px;
+    /* height: 700px; */
     margin: 0px 70px 0px 0px;
 } 
 
@@ -153,8 +153,12 @@ ul > li > ul > li {
 
 
 #left {
-    grid-area: left;
+    grid-area: leftArea;
     position: relative;
+    /* display: table-cell; */
+    /* white-space: nowrap; */
+    /* overflow-x: auto; */
+    /* overflow: hidden; */
     /* overflow: scroll; */
     /* height: 70%; */
     background-color: wheat;
@@ -168,6 +172,7 @@ ul > li > ul > li {
 
 #left * {
     background-color: transparent;
+    display: inline-block;
 }
 
 #left-down {
@@ -208,7 +213,7 @@ body {
     grid-column-gap: 10px;
     grid-template-areas: 
     "header header header"
-    "left board board"
+    "leftArea board board"
     "left-down board board"
     "footer footer footer"
     ;

@@ -1,36 +1,5 @@
 "use strict";
 
-
-
-// let offset = $("#canvas").offset();
-// let offsetX = offset.left;
-// let offsetY = offset.top;
-
-// let target = $(".target");
-
-// $(".target").draggable({
-//     helper: 'clone',
-// });
-
-// $(".target").each(function(index, element) {
-//     $(this).data("targetIndex", index);
-// });
-
-// $("#canvas").droppable({
-//     drop: dragDrop,
-// });
-
-// function dragDrop(e, ui) {
-//     let x = parseInt(ui.offset.left-offsetX)-1;
-//     let y = parseInt(ui.offset.top-offsetY);
-//     let width = ui.helper[0].width;
-//     let height = ui.helper[0].height;
-
-//     let index = ui.draggable.data("targetIndex");
-
-//     ctx
-// }
-
 $(document).ready(() => {
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d");
@@ -145,19 +114,5 @@ $(document).ready(() => {
         }
     }
     
-
-
-
-    // $("#slika1").on("dblclick", function() {
-    //     alert($(this).getPropertyValue("transform"))
-    //     $(this).animate(
-    //         { deg: $(this).data("angle")+45 },
-    //         {
-    //             duration: 1000,
-    //             step: function(now) {
-    //                 $(this).css({ transform: 'rotate(' + now + 'deg' });
-    //             }
-    //     });
-    // })
 });
 
