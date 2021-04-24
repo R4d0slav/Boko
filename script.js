@@ -134,7 +134,7 @@ $(document).ready(() => {
             $(dragValue).height(dragValue.height - 5);
         }
 
-        if (e.code == "Backspace") {
+        if (e.code == "Backspace" && !started) {
             $(dragValue).remove();
             dragValue = null;
             moving = false;
