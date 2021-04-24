@@ -43,7 +43,7 @@ $(document).ready(() => {
 
     $(".target").on("mousedown", function(e) {
         console.log(e.target);
-        if (mouseX < canvas.offsetLeft && !started) {
+        if (mouseX+e.target.width < canvas.offsetLeft && !started) {
             let newElement = e.target.cloneNode(true, true);
             $(e.target).parents()[0].append(newElement);
             started = true;
@@ -52,7 +52,6 @@ $(document).ready(() => {
     })
     let dragValue;
     let oldX, oldY, x0, y0;
-    // move("slika1");
 
     console.log(canvas.offsetLeft, canvas.clientWidth)
     console.log(canvas.offsetTop, canvas.clientHeight)
