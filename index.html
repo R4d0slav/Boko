@@ -6,16 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style-index.css"> -->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Righteous&display=swap" rel="stylesheet">
 
+    <style type="text/css">
+        html {
+            font-family: 'Press Start 2P', cursive;
+            /* font-family: 'Righteous', cursive; */
+        }
+
+        body {
+            background-image: url("slike/viber_image_2021-04-25_00-30-37.jpg");
+            background-repeat: repeat;
+            animation: textShine 1000s linear infinite;
+            background-position: 0px 0px;
+
+        }
+
+
+        @keyframes textShine {
+            /* 0% {
+                background-position: 2000% 10%;
+            } */
+
+                0% { background-position: 0 0; }
+                100% { background-position: -30000px 0; }
+        
+        }
+
+
+        #homeTitle {
+            position: absolute;
+            text-align: center;
+            margin-left: -400px;
+            margin-top: -200px;
+            top: 50%;
+            left: 50%;
+        }
+
+        img {
+            width: 800px;
+        }
+
+        h1{
+            font-size: 40px;
+            background-image: url("slike/ceste.png");
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            padding: 5px 70px 5px 70px;
+            /* margin-top: 20px; */
+            border-style: double;
+            border-radius: 20px;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+    
+    </style>
 </head>
-<body id="home">
+<body>
 
     <div id="homeTitle">
-        <h1>OBLIKOVANJE CARJANSKA CESTA</h1>
+        <!-- <h1>OBLIKOVANJE BARJANSKA CESTA</h1> -->
+        <img src="slike/viber_image_2021-04-25_20-38-11.png" />
 
         <form method="get" action="play.html">
             <button type="submit">Play</button>

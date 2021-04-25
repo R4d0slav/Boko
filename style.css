@@ -3,10 +3,10 @@ html {
     /* font-family: 'Righteous', cursive; */
 }
 
-#home {
+/* #home {
     background-image: url("slike/viber_image_2021-04-25_00-30-37.jpg");
     background-repeat: repeat;
-}
+} */
 
 #homeTitle {
     /* grid-area: homeTitle; */
@@ -179,7 +179,7 @@ ul > li > ul > li {
 #left-down {
     /* display: inline-block; */
     grid-area: left-down;
-    background-color: white;
+    background-color: silver;
     margin: 20px 30px 0px 20px;
     padding: 10px;
     border-radius: 50px;

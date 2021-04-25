@@ -1,0 +1,15 @@
+html {
+    font-family: 'Press Start 2P', cursive;
+    /* font-family: 'Righteous', cursive; */
+}
+
+body {
+    background-image: url("slike/viber_image_2021-04-25_00-30-37.jpg");
+    background-repeat: repeat;
+}
+
+#homeTitle {
+    position: relative;
+    text-align: center;
+    top: 50%;
+}
