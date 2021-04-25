@@ -143,10 +143,13 @@ ul > li > ul > li {
 
 #board * {
     background-color: #e1e758;
+    /* background-color: skyblue; */
+    /* width: 100%; */
+    /* height: 100%; */
     /* margin-left: 0px; */
     /* margin-right: 0px; */
     /* float: left; */
-    display: inline-block;
+    /* display: inline-block; */
     /* margin: 0px 20px 0px 0px; */
 }
 
@@ -155,16 +158,10 @@ ul > li > ul > li {
 #left {
     grid-area: leftArea;
     position: relative;
-    /* display: table-cell; */
-    /* white-space: nowrap; */
-    /* overflow-x: auto; */
-    /* overflow: hidden; */
-    /* overflow: scroll; */
-    /* height: 70%; */
     background-color: wheat;
     margin: 0px 30px 0px 20px;
     padding: 20px;
-    height: 550px;
+    /* height: 600px; */
     border-radius: 50px;
     border-style: double;
     border-width: 5px;
@@ -199,7 +196,8 @@ footer {
 canvas {
     /* background-color: lightblue !important; */
     background-image: url("slike/ceste.png");
-    background-size: 85%;
+    /* background-color: skyblue; */
+    background-size: 90%;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
@@ -219,3 +217,8 @@ body {
     "footer footer footer"
     ;
 } 
+
+#left h1 {
+    font-size: 13px;
+    margin-bottom: 30px;
+}
