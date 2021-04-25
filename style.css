@@ -4,7 +4,7 @@ html {
 }
 
 #home {
-    background-image: url("viber_image_2021-04-25_00-30-37.jpg");
+    background-image: url("slike/viber_image_2021-04-25_00-30-37.jpg");
     background-repeat: repeat;
 }
 
@@ -198,7 +198,7 @@ footer {
 
 canvas {
     /* background-color: lightblue !important; */
-    background-image: url("ceste.png");
+    background-image: url("slike/ceste.png");
     background-size: 85%;
     background-position: center;
     background-repeat: no-repeat;
