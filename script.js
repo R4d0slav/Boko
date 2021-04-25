@@ -1,8 +1,9 @@
 "use strict";
 
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
 $(document).ready(() => {
-    let canvas = document.getElementById("canvas");
-    let ctx = canvas.getContext("2d");
 
 
     let mouseX, mouseY;
@@ -24,6 +25,13 @@ $(document).ready(() => {
     console.log(canvas.offsetLeft, canvas.clientWidth)
     console.log(canvas.offsetTop, canvas.clientHeight)
 
+    console.log($(canvas).position());
+    // ctx.beginPath();
+    // ctx.fillStyle = "red";
+    // ctx.rect(0, 100, 500, 500);
+    // ctx.stroke();
+    // ctx.fill();
+    // ctx.closePath();
 
     function move(element) {
         element.style.position = "absolute";
@@ -44,10 +52,14 @@ $(document).ready(() => {
 
             } else {
                 started = false;
-                const newX = parseInt(dragValue.style.left.replace(/\D/g, ""));
-                const newY = parseInt(dragValue.style.top.replace(/\D/g, ""));
-                if (newX<canvas.offsetLeft || newX+dragValue.offsetWidth>canvas.clientWidth+canvas.offsetLeft
-                    || newY<canvas.offsetTop || newY+dragValue.offsetHeight>canvas.clientHeight+canvas.offsetTop) {
+                const newX = parseInt(dragValue.style.left.substr(0, dragValue.style.left.length-2));
+                const newY = parseInt(dragValue.style.top.substr(0, dragValue.style.top.length-2));
+
+                // const newY = parseInt(dragValue.style.top.replace(/\D/g, ""));
+                if (newX+60<canvas.offsetLeft || newX+dragValue.width>canvas.clientWidth+canvas.offsetLeft ||
+                    newY<0 || newY+dragValue.height/2>canvas.clientHeight) {
+                    // alert(canvas.offsetLeft);
+                    // alert(canvas.clientWidth+canvas.offsetLeft)
                     dragValue.style.left = oldX+"px";
                     dragValue.style.top = oldY+"px";
                     // alert("out");
@@ -73,7 +85,9 @@ $(document).ready(() => {
     document.onmousemove = function(e) {
         mouseX = e.pageX;
         mouseY = e.pageY;
+        
 
+        // console.log(x0, y0);
         if (dragValue) {
             // var x0 = e.pageX-this.offsetLeft;
             // var y0 = e.pageY-this.offsetTop;
@@ -91,14 +105,25 @@ $(document).ready(() => {
             dragValue.style.transform += "rotate(-5deg)";
         }
 
-        if (e.code == "ArrowUp") {
+        if (e.code == "ArrowUp" || e.key == "+") {
             $(dragValue).width(dragValue.width + 5);
             $(dragValue).height(dragValue.height + 5);
+
+            dragValue.style.left = parseInt(dragValue.style.left.replace(/\D/g, "")) - 2 + "px";
+            dragValue.style.top = parseInt(dragValue.style.top.replace(/\D/g, "")) - 2 + "px";
+            x0+=2;
+            y0+=2;
+
         }
 
-        if (e.code == "ArrowDown") {
+        if (e.code == "ArrowDown" || e.key == "-") {
             $(dragValue).width(dragValue.width - 5);
             $(dragValue).height(dragValue.height - 5);
+            
+            dragValue.style.left = parseInt(dragValue.style.left.replace(/\D/g, "")) + 2 + "px";
+            dragValue.style.top = parseInt(dragValue.style.top.replace(/\D/g, "")) + 2 + "px";
+            x0-=2;
+            y0-=2;
         }
 
         if (e.code == "Backspace") {
@@ -112,7 +137,37 @@ $(document).ready(() => {
             dragValue = null;
             moving = false;
         }
+
+
+        if (e.code == "KeyS") {
+            // localStorage.setItem("my-canvas", JSON.stringify($(".target")));
+            capture();
+        }
+
+        // if (e.code == "KeyW") {
+        //     $(".target").replaceWith(JSON.parse(localStorage.getItem("my-canvas")));
+        // }
+
+
     }
     
 });
 
+const capture = async() => {
+
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+
+    const video = document.createElement("video");
+
+    try {
+        const captureStream = await navigator.mediaDevices.getDisplayMedia();
+        video.srcObject = captureStream;
+        context.drawImage(video, 0, 0, window.width, window.height);
+        const frame = canvas.toDataURL("image/png");
+        captureStream.getTracks().forEach(track => track.stop());
+        window.location.href = frame;
+    } catch (err) {
+        console.log("Error: " + err);
+    }
+}
