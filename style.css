@@ -131,7 +131,7 @@ ul > li > ul > li {
 
 #board {
     grid-area: board;
-    background-color: gold;
+    background-color: rgb(216, 193, 62);
     text-align: center;
     padding: 20px;
     border-radius: 70px;
@@ -142,7 +142,7 @@ ul > li > ul > li {
 } 
 
 #board * {
-    background-color: gold;
+    background-color: rgb(216, 193, 62);
     /* margin-left: 0px; */
     /* margin-right: 0px; */
     /* float: left; */

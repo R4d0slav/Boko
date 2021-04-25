@@ -11,11 +11,12 @@ $(document).ready(() => {
     let started = false;
 
 
-    $(".target").on("mousedown", function(e) {
+    $(".target").on("mouseup", function(e) {
         if (mouseX+e.target.width < canvas.offsetLeft && !started) {
             let newElement = e.target.cloneNode(true, true);
             $(e.target).parents()[0].append(newElement);
         } 
+
         started = true;
         move(e.target);
     })
@@ -35,6 +36,7 @@ $(document).ready(() => {
 
     function move(element) {
         element.style.position = "absolute";
+        
         element.onclick = function(e) {
             x0 = e.pageX-this.offsetLeft;
             y0 = e.pageY-this.offsetTop;
