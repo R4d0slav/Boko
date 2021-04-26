@@ -5,7 +5,6 @@ let ctx = canvas.getContext("2d");
 
 $(document).ready(() => {
 
-
     let dragValue;
     let oldX, oldY, x0, y0;
 
