@@ -46,11 +46,12 @@
         }
 
         img {
-            width: 45%;
+            width: 70%;
         }
 
         h1{
-            font-size: 40px;
+            display: none;
+            font-size: 4vmin;
             animation: blinker 2s linear infinite;
             /* background-image: url("slike/ceste.png"); */
         }
@@ -59,12 +60,13 @@
             30% {
                 opacity: 0;
             }
-            50% {
+            60% {
                 opacity: 1;
             }
         }
 
         button {
+            display: inline;
             margin-bottom: 10px;
             min-width: 15%;
             padding: 0.7%;
@@ -81,6 +83,18 @@
             background: rgb(96,91,33);
             background: linear-gradient(90deg, rgba(96,91,33,1) 4%, rgba(255,253,34,1) 18%, rgba(208,203,50,1) 59%, rgba(190,168,37,1) 84%, rgba(74,75,3,1) 98%);
         }
+
+        @media (min-width: 1200px) {
+            img {
+                width: 45%;
+            }
+            button {
+                display: none;
+            }
+            h1 {
+                display: block;
+            }
+        }
     
     </style>
 </head>
@@ -93,13 +107,13 @@
 
         <h1>PRESS ENTER</h1>
 
-        <!-- <form method="get" action="play.html">
+        <form method="get" action="play.html">
             <button type="submit">PLAY</button><br />
         </form>
 
         <form method="get" action="instructions.html">
             <button type="submit">INSTRUCTIONS</button>
-        </form> -->
+        </form>
     </div>
 
     <script>
