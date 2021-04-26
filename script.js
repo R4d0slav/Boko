@@ -5,96 +5,80 @@ let ctx = canvas.getContext("2d");
 
 $(document).ready(() => {
 
+    let dragValue;
+    let oldX, oldY, x0, y0;
 
     let mouseX, mouseY;
     let moving = false;
     let started = false;
 
 
-    $(".target").on("mouseup", function(e) {
-        if (mouseX+e.target.width < canvas.offsetLeft && !started) {
+    $("img").on("click", function(e) {
+        if (!checkInBounds(mouseX, mouseY, e.target.width, e.target.height) && !started) {
             let newElement = e.target.cloneNode(true, true);
             $(e.target).parents()[0].append(newElement);
-        } 
+            started = true;
+            pickUp(e, newElement);
+        }
+    });
 
-        started = true;
-        move(e.target);
-    })
-    let dragValue;
-    let oldX, oldY, x0, y0;
 
-    console.log(canvas.offsetLeft, canvas.clientWidth)
-    console.log(canvas.offsetTop, canvas.clientHeight)
+    const pickUp = function(e, element) {
+        x0 = e.pageX-element.offsetLeft;
+        y0 = e.pageY-element.offsetTop;
 
-    console.log($(canvas).position());
-    // ctx.beginPath();
-    // ctx.fillStyle = "red";
-    // ctx.rect(0, 100, 500, 500);
-    // ctx.stroke();
-    // ctx.fill();
-    // ctx.closePath();
+        dragValue = element;
+
+        oldX = e.pageX-x0;
+        oldY = e.pageY-y0;
+        dragValue.style.left = e.pageX-x0 + "px";
+        dragValue.style.top = e.pageY-y0 + "px";
+        moving = true;
+        move(dragValue);
+    
+    }
 
     function move(element) {
         element.style.position = "absolute";
-        
-        element.onclick = function(e) {
+        element.style.margin = "0";
+
+        element.onmousedown = function(e) {
             x0 = e.pageX-this.offsetLeft;
             y0 = e.pageY-this.offsetTop;
-
+    
             if (!moving) {
-                // started = true;
                 dragValue = element;
                 let x = e.pageX;
                 let y = e.pageY;
-
+    
                 oldX = x-x0;
                 oldY = y-y0;
                 dragValue.style.left = x-x0 + "px";
                 dragValue.style.top = y-y0 + "px";
-
+                moving = true;
+    
             } else {
-                started = false;
-                const newX = parseInt(dragValue.style.left.substr(0, dragValue.style.left.length-2));
-                const newY = parseInt(dragValue.style.top.substr(0, dragValue.style.top.length-2));
-
-                // const newY = parseInt(dragValue.style.top.replace(/\D/g, ""));
-                if (newX+60<canvas.offsetLeft || newX+dragValue.width>canvas.clientWidth+canvas.offsetLeft ||
-                    newY<0 || newY+dragValue.height/2>canvas.clientHeight) {
-                    // alert(canvas.offsetLeft);
-                    // alert(canvas.clientWidth+canvas.offsetLeft)
+                if (!checkInBounds(mouseX, mouseY, dragValue.width, dragValue.height)) {
                     dragValue.style.left = oldX+"px";
                     dragValue.style.top = oldY+"px";
-                    // alert("out");
-                    // $(dragValue).remove();
+                    if (started) {
+                        $(dragValue).remove();
+                    }
                 }
                 dragValue = null;
-            }
-            if (moving) {
+                started = false;
                 moving = false;
-            } else {
-                moving = true;
             }
         }
     }
-
-    // document.onclick = function() {
-    //     if (!moving) {
-    //         // moving = true;
-    //         dragValue = null;
-    //     }
-    // }
 
     document.onmousemove = function(e) {
         mouseX = e.pageX;
         mouseY = e.pageY;
         
-
-        // console.log(x0, y0);
         if (dragValue) {
-            // var x0 = e.pageX-this.offsetLeft;
-            // var y0 = e.pageY-this.offsetTop;
-            dragValue.style.left = mouseX-x0 + "px";
-            dragValue.style.top = mouseY-y0 + "px";
+            dragValue.style.left = e.pageX-x0 + "px";
+            dragValue.style.top = e.pageY-y0 + "px";
         }
     }
 
@@ -136,24 +120,35 @@ $(document).ready(() => {
         }
 
         if (e.code == "Space") {
+            if (!checkInBounds(mouseX, mouseY, dragValue.width, dragValue.height)) {
+                dragValue.style.left = oldX+"px";
+                dragValue.style.top = oldY+"px";
+                if (started) {
+                    $(dragValue).remove();
+                }
+            }
             dragValue = null;
+            started = false;
             moving = false;
         }
 
 
         if (e.code == "KeyS") {
-            // localStorage.setItem("my-canvas", JSON.stringify($(".target")));
             capture();
         }
-
-        // if (e.code == "KeyW") {
-        //     $(".target").replaceWith(JSON.parse(localStorage.getItem("my-canvas")));
-        // }
-
 
     }
     
 });
+
+
+const checkInBounds = function (x, y, width, height) {
+    if (x-width/2<canvas.offsetLeft || x+width/2>canvas.clientWidth+canvas.offsetLeft)
+        return false;
+    if (y-height/2<canvas.offsetTop || y+height/2>canvas.clientHeight+canvas.offsetTop)
+        return false;
+    return true;
+}
 
 const capture = async() => {
 

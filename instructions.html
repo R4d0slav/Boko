@@ -11,6 +11,71 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Righteous&display=swap" rel="stylesheet">
 
+    <style type="text/css">
+
+        #instrTitle {
+            font-size: 3.2vmin;
+            color: gold;
+        }
+
+        #instr {
+            grid-area: left-side;
+            /* width: 600px; */
+            /* padding: 20px; */
+            margin: 10% 0px 0px 0px;
+        }
+
+        li {
+            color: white;
+            font-size: 1.5vmin;
+            /* width: 100%; */
+            margin: 0px 0px 15px 0px;
+
+            /* background-color: turquoise; */
+        }
+
+
+        ul {
+            margin: 0px 0px 2% 0px;
+        }
+
+        ul > li > ul > li {
+            font-size: 1.2vmin;
+            color: silver;
+        }
+
+        #right-instr {
+            grid-area: right-side;
+            margin: 15% 0px 0px 0px;
+            text-align: right;
+            padding: 20px;
+            /* font-size: 1vmin; */
+            /* width: 40%; */
+            /* float: right; */
+            /* margin-left: 50; */
+        }
+
+        #right-instr h1 {
+            color: white;
+            font-size: 2vmin;
+        }
+
+        #right-instr h2 {
+            color: silver;
+            font-size: 1.5vmin;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: 55% 45%;
+            grid-template-areas: 
+            "header header"
+            "left-side right-side"
+            "footer footer"
+            ;
+            /* background-color: blue; */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -44,6 +109,14 @@
                 </ul>
             </li>
         </ul>
+    </div>
+
+    <div id="right-instr">
+        <h1>GAME DESIGNED BY</h1>
+        <h2>BORJAN NIKOLOVSKI</h2>
+        <br />
+        <h1>MENTOR</h1>
+        <h2>ALENKA FIKFAK</h2>
     </div>
 
     <footer>Urbanistično projektiranje</footer>
