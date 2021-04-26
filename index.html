@@ -19,9 +19,9 @@
 
         body {
             background-image: url("slike/pozadinafefe.jpg");
-            /* background-size: 92%; */
+            /* background-size:contain; */
             background-repeat: repeat;
-            animation: textShine 1000s linear infinite;
+            animation: textShine 100s linear infinite;
             background-position: 0px 0px;
             /* display: grid;
             grid-template-columns: 2000px;
@@ -33,7 +33,7 @@
 
         @keyframes textShine {
                 0% { background-position: 0 0; }
-                100% { background-position: -30000px 0; }
+                100% { background-position: -3000px 0; }
         
         }
 
@@ -55,7 +55,8 @@
         }
 
         button {
-            width: 15%;
+            margin-bottom: 10px;
+            min-width: 15%;
             padding: 0.7%;
             font-family: 'Press Start 2P', cursive;
             background-color: black;
@@ -80,7 +81,11 @@
         <img src="slike/viber_image_2021-04-25_20-38-11.png" />
 
         <form method="get" action="play.html">
-            <button type="submit">PLAY</button>
+            <button type="submit">PLAY</button><br />
+        </form>
+
+        <form method="get" action="instructions.html">
+            <button type="submit">INSTRUCTIONS</button>
         </form>
     </div>
 

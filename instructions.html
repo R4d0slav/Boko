@@ -83,7 +83,7 @@
 </head>
 <body>
     <header>
-        <a class="link" href="play.html">Back</a>
+        <a class="link" href="javascript:previous();">Back</a>
         <h1 id="instrTitle">Instructions</h1>
     </header>
 
@@ -127,6 +127,12 @@
     </div>
 
     <footer>Urbanistično projektiranje</footer>
+
+    <script>
+        previous = function() {
+            document.location.href = document.referrer;
+        }
+    </script>
 
 </body>
 </html>
