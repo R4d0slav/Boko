@@ -51,7 +51,17 @@
 
         h1{
             font-size: 40px;
-            background-image: url("slike/ceste.png");
+            animation: blinker 2s linear infinite;
+            /* background-image: url("slike/ceste.png"); */
+        }
+
+        @keyframes blinker {
+            30% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
         }
 
         button {
@@ -80,14 +90,25 @@
         <!-- <h1>OBLIKOVANJE BARJANSKA CESTA</h1> -->
         <img src="slike/viber_image_2021-04-25_20-38-11.png" />
 
-        <form method="get" action="play.html">
+
+        <h1>PRESS ENTER</h1>
+
+        <!-- <form method="get" action="play.html">
             <button type="submit">PLAY</button><br />
         </form>
 
         <form method="get" action="instructions.html">
             <button type="submit">INSTRUCTIONS</button>
-        </form>
+        </form> -->
     </div>
+
+    <script>
+        document.addEventListener("keypress", function(e) {
+            if (e.code == "Enter") {
+                document.location.href = "play.html";
+            }
+        });
+    </script>
 
 
 </body>
