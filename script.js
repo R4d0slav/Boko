@@ -5,13 +5,13 @@ let ctx = canvas.getContext("2d");
 
 $(document).ready(() => {
 
+
     let dragValue;
     let oldX, oldY, x0, y0;
 
     let mouseX, mouseY;
     let moving = false;
     let started = false;
-
 
     $("img").on("click", function(e) {
         if (!checkInBounds(mouseX, mouseY, e.target.width, e.target.height) && !started) {
@@ -140,6 +140,7 @@ $(document).ready(() => {
     }
     
 });
+
 
 
 const checkInBounds = function (x, y, width, height) {
