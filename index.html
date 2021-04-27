@@ -6,30 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- <link rel="stylesheet" href="style-index.css"> -->
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Righteous&display=swap" rel="stylesheet">
 
-    <style type="text/css">
+    <style>
         html {
             font-family: 'Press Start 2P', cursive;
-            /* font-family: 'Righteous', cursive; */
         }
 
         body {
             background-image: url("slike/pozadinafefe.jpg");
-            /* background-size:contain; */
             background-repeat: repeat;
             animation: textShine 100s linear infinite;
             background-position: 0px 0px;
-            /* display: grid;
-            grid-template-columns: 2000px;
-            grid-template-areas: 
-            "homeTitle"
-            ; */
         }
-
 
         @keyframes textShine {
                 0% { background-position: 0 0; }
@@ -53,7 +43,6 @@
             display: none;
             font-size: 4vmin;
             animation: blinker 2s linear infinite;
-            /* background-image: url("slike/ceste.png"); */
         }
 
         @keyframes blinker {
@@ -101,9 +90,7 @@
 <body>
 
     <div id="homeTitle">
-        <!-- <h1>OBLIKOVANJE BARJANSKA CESTA</h1> -->
-        <img src="slike/viber_image_2021-04-25_20-38-11.png" />
-
+        <img src="slike/viber_image_2021-04-25_20-38-11.png" alt="image" />
 
         <h1>PRESS ENTER</h1>
 
@@ -122,6 +109,8 @@
                 document.location.href = "play.html";
             }
         });
+
+        localStorage.setItem("url", "index.html");
     </script>
 
 

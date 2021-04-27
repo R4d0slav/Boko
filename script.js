@@ -4,6 +4,7 @@ let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
 $(document).ready(() => {
+    localStorage.setItem("url", "play.html");
 
     let dragValue;
     let oldX, oldY, x0, y0;
