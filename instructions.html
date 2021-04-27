@@ -19,24 +19,29 @@
         }
 
         #instr {
+            position: relative;
             grid-area: left-side;
             /* width: 600px; */
             /* padding: 20px; */
-            margin: 10% 0px 0px 0px;
+            margin: 10% 0 0 0;
         }
 
         li {
             color: white;
             font-size: 1.5vmin;
             /* width: 100%; */
-            margin: 0px 0px 15px 0px;
-
             /* background-color: turquoise; */
         }
 
+        ul > li {
+            margin: 1.5% 0 0 0;
 
-        ul {
-            margin: 1.5% 0px 2% 0px;
+        }
+
+        ul ul {
+            position: relative;
+            display: inline;
+            left: 5%
         }
 
         ul > li > ul > li {
@@ -49,10 +54,6 @@
             margin: 15% 0px 0px 0px;
             text-align: right;
             padding: 20px;
-            /* font-size: 1vmin; */
-            /* width: 40%; */
-            /* float: right; */
-            /* margin-left: 50; */
         }
 
         #right-instr h1 {
